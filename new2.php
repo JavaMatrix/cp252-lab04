@@ -26,11 +26,11 @@ $result = $conn->query($sql);
 
 if($result->num_rows > 0)
 {
-echo "<table><tr><th>ID</th><th>Name</th></tr>";
+echo "<table><tr><th>ID</th><th>Name</th><th>Name</th></tr>";
 
 while($row = $result->fetch_assoc())
 {
-echo "<tr><td>".$row["emp_id"]."</td><td>".$row["fname"]."</td></tr>";
+echo "<tr><td>".$row["emp_id"]."</td><td>".$row["fname"]."</td><td>".$row["lname"]."</td></tr>";
 }
 
 echo "</table>";
@@ -93,16 +93,16 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection 
 if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
 
-$sql = "SELECT job_id, job_desc FROM jobs"; 
+$sql = "SELECT * FROM jobs"; 
 $result = $conn->query($sql);
 
 if($result->num_rows > 0)
 {
-echo "<table><tr><th>ID</th><th>Name</th></tr>";
+echo "<table><tr><th>ID</th><th>Name</th><th>Name</th></tr>";
 
 while($row = $result->fetch_assoc())
 {
-echo "<tr><td>".$row["job_id"]."</td><td>".$row["job_desc"]."</td></tr>";
+echo "<tr><td>".$row["job_id"]."</td><td>".$row["job_desc"]."</td><td>".$row["min_lvl"]."</td></tr>";
 }
 
 echo "</table>";
@@ -117,8 +117,6 @@ $conn->close();
 
 Jobs();
 ?>
-
-
 
 </body>
 </html>
