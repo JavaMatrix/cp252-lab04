@@ -5,3 +5,42 @@ h1, h2, h3, h4, h5, h6 {
 p, div {
     font-family: 'Open Sans';
 }
+
+.popup {
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    background: white;
+    border: 1px solid #888888;
+    box-shadow: 5px 5px 5px #888888;
+    width: 50%;
+    height: 500px;
+    margin: auto;
+    opacity: 1;
+
+    -moz-transition: opacity 100ms ease-in-out;
+    -webkit-transition: opacity 100ms ease-in-out;
+    -ms-transition: opacity 100ms ease-in-out;
+    -o-transition: opacity 100ms ease-in-out;
+    transition: opacity 100ms linear;
+}
+
+.popup-hidden {
+    opacity: 0;
+}
+
+.popup-form {
+    margin: 15px 25px 0px 25px;
+}
+
+.close, .close:hover {
+    color: #888888;
+    margin-top: 15px;
+}
+
+.save-btn {
+    margin-left: 25px;
+}
+
+.cancel-btn {
+    margin-left: 10px;
+}

@@ -8,16 +8,13 @@
         <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet"> 
         <link rel="stylesheet" href="index.css">
         <script
-          src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-          integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-          crossorigin="anonymous"></script>
-        <script
 	  src="https://code.jquery.com/jquery-3.1.1.min.js"
 	  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 	  crossorigin="anonymous"></script>
         <script
-          src="index.js"></script>
-    </head>
+          src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+          integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+          crossorigin="anonymous"></script>    </head>
     <body>
         <div class="container">
             <h1>Employees</h1>
@@ -37,5 +34,38 @@
                 </tbody>
             </table>
         </div>
+
+        <div class="popup container" id="edit-popup">
+            <a class="close close-js pull-right"><span class="glyphicon glyphicon-remove"/></a>
+            <h3>Editing <span id="editing"></span></h3>
+            <form id="edit-form" class="popup-form">
+                <input type="hidden" id="id">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" class="form-control" id="fname" placeholder="First Name">
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" class="form-control" id="lname" placeholder="Last Name">
+                </div>
+                <div class="form-group">
+                    <label>Job Title</label>
+                    <select class="form-control" id="job_id"></select>
+                </div>
+                <div class="form-group">
+                    <label>Job Level</label>
+                    <input type="number" class="form-control" id="job_lvl">
+                </div>
+                <div class="form-group">
+                    <label>Employer</label>
+                    <select class="form-control" id="pub_id"></select>
+                </div>
+            </form>
+            <a class="btn btn-primary col-xs-1 save-btn">Save</a>
+            <a class="btn btn-default close-js col-xs-1 cancel-btn">Cancel</a>
+        </div>
     </body>
+    <script
+      src="index.js"></script>
+
 </html>
