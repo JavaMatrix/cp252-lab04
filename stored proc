@@ -1,0 +1,29 @@
+CREATE PROCEDURE pubs()
+BEGIN
+  SELECT pub_id, pub_name FROM publishers
+END //
+DELIMITER ;
+
+CREATE PROCEDURE jobs()
+BEGIN
+  SELECT * FROM jobs
+END //
+DELIMITER ;
+
+CREATE PROCEDURE view()
+BEGIN
+  SELECT emp_id, fname, lname, job_desc, job_lvl, pub_name FROM employee E INNER JOIN jobs J ON J.job_id = E.job_id INNER JOIN publishers P ON P.pub_id = E.pub_id
+END //
+DELIMITER ;
+
+CREATE PROCEDURE update()
+BEGIN
+  UPDATE employee E SET fname = '". $myArray['fname']. "', lname = '". $myArray['lname']. "', job_id = '". $myArray['job_id']. "', job_lvl = '". $myArray['job_lvl']. "', pub_id = '". $myArray['pub_id']. "' WHERE emp_id = '". $myArray['emp_id']. "'"
+END //
+DELIMITER ;
+
+CREATE PROCEDURE singleview()
+BEGIN
+  SELECT emp_id, fname, lname, job_desc, job_lvl, pub_name FROM employee E INNER JOIN jobs J ON J.job_id = E.job_id INNER JOIN publishers P ON P.pub_id = E.pub_id
+END //
+DELIMITER ;
