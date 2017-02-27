@@ -8,7 +8,7 @@ $dbname = "pubs";
 $conn = new mysqli($servername, $username, $password, $dbname); 
 // Check connection 
 if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
-$sql = "SELECT emp_id, fname, lname, job_desc, job_lvl, pub_name FROM employee E INNER JOIN jobs J ON J.job_id = E.job_id INNER JOIN publishers P ON P.pub_id = E.pub_id"; 
+$sql = "CALL view()"; 
 $result = $conn->query($sql);
 
 $return_arr = array();
