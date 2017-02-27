@@ -1,29 +1,14 @@
-CREATE PROCEDURE pubs()
-BEGIN
-  SELECT pub_id, pub_name FROM publishers
-END //
-DELIMITER ;
+CREATE PROCEDURE pubs() SELECT pub_id, pub_name FROM publishers;
+CALL pubs();
 
-CREATE PROCEDURE jobs()
-BEGIN
-  SELECT * FROM jobs
-END //
-DELIMITER ;
+CREATE PROCEDURE jobs() SELECT * FROM jobs;
+CALL jobs();
 
-CREATE PROCEDURE view()
-BEGIN
-  SELECT emp_id, fname, lname, job_desc, job_lvl, pub_name FROM employee E INNER JOIN jobs J ON J.job_id = E.job_id INNER JOIN publishers P ON P.pub_id = E.pub_id
-END //
-DELIMITER ;
+CREATE PROCEDURE view() SELECT emp_id, fname, lname, job_desc, job_lvl, pub_name FROM employee E INNER JOIN jobs J ON J.job_id = E.job_id INNER JOIN publishers P ON P.pub_id = E.pub_id;
+CALL view();
 
-CREATE PROCEDURE update()
-BEGIN
-  UPDATE employee E SET fname = '". $myArray['fname']. "', lname = '". $myArray['lname']. "', job_id = '". $myArray['job_id']. "', job_lvl = '". $myArray['job_lvl']. "', pub_id = '". $myArray['pub_id']. "' WHERE emp_id = '". $myArray['emp_id']. "'"
-END //
-DELIMITER ;
+CREATE PROCEDURE nupdate(IN id varchar(20), IN fname varchar(20), IN lname varchar(20), IN job varchar(20), IN lvl varchar(5), IN pub varchar(5))UPDATE employee E SET fname = fname, lname = lname, job_id = job, job_lvl = lvl, pub_id = pub WHERE emp_id = id;
+CALL nupdate('POK93028M', 'Trevor', 'Rouse', '10', '100', '9999');
 
-CREATE PROCEDURE singleview()
-BEGIN
-  SELECT emp_id, fname, lname, job_desc, job_lvl, pub_name FROM employee E INNER JOIN jobs J ON J.job_id = E.job_id INNER JOIN publishers P ON P.pub_id = E.pub_id
-END //
-DELIMITER ;
+ CREATE PROCEDURE singleview(IN id varchar(20)) SELECT emp_id, fname, lname, job_desc, job_lvl, pub_name FROM employee E INNER JOIN jobs J ON J.job_id = E.job_id INNER JOIN publishers P ON P.pub_id = E.pub_id WHERE emp_id = id;
+CALL singleview('PSP68661F');//any id can be passed this is just what i used in my test
