@@ -9,7 +9,7 @@ $dbname = "pubs";
 $conn = new mysqli($servername, $username, $password, $dbname); 
 // Check connection 
 if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
-$sql = "SELECT pub_id, pub_name FROM publishers";
+$sql = "CALL pubs()";
 $result = $conn->query($sql);
 
 $return_arr = array();
