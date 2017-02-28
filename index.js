@@ -18,6 +18,11 @@ function add_employee(emp)
 function refresh()
 {
     output = $( '#authors' ).first();
+    output.empty();
+    emps = {};
+    jobs = {};
+    pubs = {};
+    current_emp = undefined;
 
     $.getJSON('jobs.php', processJobs);
 }
@@ -124,7 +129,7 @@ $( '.save-btn' ).click(
 
         $.post(
             'update.php',
-            JSON.stringify(current_emp),
+            { "emp": JSON.stringify(current_emp) },
             function(response) {
                 alert(response);
                 refresh();
