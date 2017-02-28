@@ -19,9 +19,9 @@ while($row = $result->fetch_assoc())
 $row_array['emp_id'] = $row['emp_id'];
 $row_array['fname'] = $row['fname'];
 $row_array['lname'] = $row['lname'];
-$row_array['job_desc'] = $row['job_desc'];
+$row_array['job_id'] = $row['job_id'];
 $row_array['job_lvl'] = $row['job_lvl'];
-$row_array['pub_name'] = $row['pub_name'];
+$row_array['pub_id'] = $row['pub_id'];
 
 array_push($return_arr,$row_array);
 }
