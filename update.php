@@ -15,7 +15,7 @@ $decodedText = html_entity_decode($json);
 $myArray = json_decode($decodedText, true);
 $sql = "CALL nupdate('".$myArray['emp_id']."', '".$myArray['fname']. "', '". $myArray['lname']. "', '". $myArray['job_id']. "', '". $myArray['job_lvl']. "', '". $myArray['pub_id']."')";
 
-if ($conn->query($sql) === TRUE)
+if ($conn->query($sql) == TRUE)
 { echo "Record updated successfully"; } 
 else 
 { echo "Error updating record: " . $conn->error; }
