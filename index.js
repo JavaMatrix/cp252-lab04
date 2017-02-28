@@ -2,7 +2,7 @@ var output;
 var emps = {};
 var jobs = {};
 var pubs = {};
-var 
+var current_emp;
 
 function add_employee(emp)
 {
@@ -80,6 +80,8 @@ function processView(_view)
 
             $( '#job_lvl' ).attr('min', jobs[$( '#job_id' ).val()].min_lvl);
             $( '#job_lvl' ).attr('max', jobs[$( '#job_id' ).val()].max_lvl);
+
+            current_emp = emp;
         }
     );
 
@@ -97,6 +99,7 @@ function processView(_view)
             }
         }
     );
+
 }
 
 $( document ).ready(
@@ -113,13 +116,20 @@ $( '.close-js' ).click(
 
 $( '.save-btn' ).click(
     function() {
-        var form_data = {};
-        form_data.id = $('#id').val();
-        form_data.fname = $('#fname').val();
-        form_data.lname = $('#lname').val();
-        form_data.job_id = '';
-        form_data.job_lvl = $('#job_lvl').val();
-        form_data.pub_id = '';
-        alert(JSON.stringify(form_data));
+        current_emp.fname = $( '#fname' ).val();
+        current_emp.lname = $( '#lname' ).val();
+        current_emp.job_id = $( '#job_id' ).val();
+        current_emp.job_lvl = $( '#job_lvl' ).val();
+        current_emp.pub_id = $( '#pub_id' ).val();
+
+        $.post(
+            'update.php',
+            JSON.stringify(current_emp),
+            function(response) {
+                alert(response);
+                refresh();
+                $( '.close-js' ).parent().addClass('popup-hidden');
+            }
+        );
     }
 );

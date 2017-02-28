@@ -22,8 +22,7 @@ else
 
 $conn->close(); 
 }
-$jsa = array();
-$jsa = '{ "emp_id":"GHT50241M","fname":"Jerry","lname":"Thomas","job_id":"9","job_lvl":"170","pub_id":"9999"}';
 
-Update($jsa);
+// Trevor, I updated this to listen to the post data. - Nate
+Update($_POST['emp']);
 ?>
