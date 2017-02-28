@@ -4,7 +4,7 @@ CALL pubs();
 CREATE PROCEDURE jobs() SELECT * FROM jobs;
 CALL jobs();
 
-CREATE PROCEDURE view() SELECT emp_id, fname, lname, job_desc, job_lvl, pub_name FROM employee E INNER JOIN jobs J ON J.job_id = E.job_id INNER JOIN publishers P ON P.pub_id = E.pub_id;
+CREATE PROCEDURE view() SELECT emp_id, fname, lname, job_id, job_lvl, pub_id FROM employee;
 CALL view();
 
 CREATE PROCEDURE nupdate(IN id varchar(20), IN fname varchar(20), IN lname varchar(20), IN job varchar(20), IN lvl varchar(5), IN pub varchar(5))UPDATE employee E SET fname = fname, lname = lname, job_id = job, job_lvl = lvl, pub_id = pub WHERE emp_id = id;
